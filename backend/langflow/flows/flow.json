@@ -1,0 +1,20 @@
+{
+    "nodes": [
+      {
+        "id": "load-user-resume",
+        "type": "SupabaseQuery",
+        "params": { "table": "resumes", "filters": { "user_id": "{{user_id}}" } }
+      },
+      {
+        "id": "load-job-desc",
+        "type": "SupabaseQuery",
+        "params": { "table": "job_emails", "filters": { "user_id": "{{user_id}}" } }
+      },
+      {
+        "id": "tailor-resume",
+        "type": "GPT-4",
+        "params": { "prompt": "Tailor this resume for the given job" }
+      }
+    ]
+  }
+  
