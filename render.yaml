@@ -13,7 +13,7 @@ services:
       - Key: PORT
         Value: 7860
       - key: OPENROUTER_API_KEY
-        value: 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
+        value: sk
       - key: LANGFLOW_DATABASE_URL
         value: sqlite:////app/data/.cache/langflow/langflow.db
       - key: LANGFLOW_HOST
