@@ -1,23 +1,24 @@
 services:
   # A Docker web service
   - type: web
-    name: langflow
+    name: jobtrkr-langflow
     runtime: docker
     dockerfilePath: ./docker/render.Dockerfile
-    repo: https://github.com/langflow-ai/langflow
+    repo: https://github.com/houmana/jobtrkr-langflow
     branch: main
     plan: standard
     healthCheckPath: /health_check
-    autoDeploy: false
+    autoDeploy: true
     envVars:
+      - Key: PORT
+        Value: 7860
+      - key: OPENROUTER_API_KEY
+        value: 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
       - key: LANGFLOW_DATABASE_URL
         value: sqlite:////app/data/.cache/langflow/langflow.db
       - key: LANGFLOW_HOST
         value: 0.0.0.0
-      - key: LANGFLOW_PORT
-        # default render port https://docs.render.com/web-services#port-binding
-        value: 10000
-      - key: LANGFLOW_LOG_LEVEL
+       - key: LANGFLOW_LOG_LEVEL
         value: INFO
     disk:
       name: langflow-data
